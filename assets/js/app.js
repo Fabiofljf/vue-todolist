@@ -40,15 +40,11 @@ const app = new Vue({
     },
     methods: {
         getText() {
-            console.log('aggiugo listItem');
-            console.log(this.text_user);
             this.tasks.unshift(this.text_user)
 
         },
-        cutText(index) {
+        cutText() {
             console.log('taglio testo');
-            console.log(index);
-            console.log(this.tasks.done);
         },
         restartText() {
             console.log('ripristino testo');
