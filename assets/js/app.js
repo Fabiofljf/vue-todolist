@@ -12,13 +12,10 @@ Bonus:
 */
 const app = new Vue({
     el: '#app',
-    index: 0,
-    css_class: 'text-decoration-line-through',
     data: {
-        task: {
-            text_user: '',
-            done: 'false',
-        },
+        text_user: '',
+        index: 0,
+        css_class: 'text-decoration-line-through',
         tasks: [{
                 text: 'Andare in palestra',
                 done: true
@@ -35,14 +32,15 @@ const app = new Vue({
                 text: 'Preparare la cena',
                 done: false
             },
-        ],
+        ]
     },
     methods: {
         getText() {
-            console.log(this.task.text_user);
-            console.log(this.task);
-            this.tasks.unshift(this.task)
-
+            const myNewTask = {
+                text: this.text_user,
+                done: 'false',
+            }
+            this.tasks.push(myNewTask)
         },
         cutText() {
             console.log('taglio testo');
