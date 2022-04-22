@@ -32,7 +32,9 @@ const app = new Vue({
                 text: 'Preparare la cena',
                 done: false
             },
-        ]
+        ],
+        tasks_done: [],
+        tasks_trash: []
     },
     methods: {
         getText() {
@@ -45,7 +47,10 @@ const app = new Vue({
         completedText(index) {
             // console.log(this.tasks[index].done); // - true
             // console.log(index); // - 0
-            this.tasks[index].done = true
+            this.tasks[index].done = true;
+            //console.log(this.tasks[index]);
+            this.tasks_done.push(this.tasks[index])
+
         },
         restartText(index) {
             //console.log('ripristino testo');

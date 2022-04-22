@@ -23,40 +23,85 @@
 <body>
 
     <div id="app">
-        <div class="container">
+        <div class="container shadow p-5">
             <div class="row flex-column">
-                <div class="col d-flex justify-content-center align-items-center gy-4">
+                <div class="col d-flex justify-content-center align-items-center gy-2">
                     <img src="./assets/img/logo boolean.jpeg" alt="Logo boolean">
                     <h2>Booleaner</h2>
                 </div>
-                <!-- /.col -->
-                <div class="col d-flex justify-content-center gy-4">
+                <!-- /.col text-->
+
+                <div class="col d-flex justify-content-center gy-5">
                     <input class="changes_input" type="text" v-model="text_user" @keyup.enter="getText">
                     <button class="btn btn-primary ms-2" @click="getText">Add</button>
                 </div>
-                <!-- /.col -->
-                <div class="col offset-3 w_650 d-flex flex-column justify-content-center bg-primary gy-4">
-                    <ul id="text_empty">
-                        <div v-if="tasks.length > 0">
-                            <li class="border-bottom" v-for="(task, index) in tasks">
-                                <h2 class="flex-grow-1" v-bind:class="task.done ? css_class : '' ">{{task.text}}</h2>
-                                <button class="btn btn-secondary" @click="completedText(index)">
-                                    <i class="fa-solid fa-circle-check fa-xl"></i>
-                                </button>
-                                <button class="btn btn-secondary" @click="restartText(index)">
-                                    <i class="fa-solid fa-arrow-rotate-left fa-xl"></i>
-                                </button>
-                                <button class="btn btn-secondary" @click="remuveText(index)">
-                                        <i class="fa-solid fa-trash fa-xl"></i>
-                                </button>
-                            </li>
+                <!-- /.col input-->
+
+                <div class="col d-flex gy-5">
+
+                    <div class="col d-flex flex-column">
+                        <h2 class="d-block">Things to do</h2>
+                        <div class="col d-flex flex-column justify-content-center bg-primary shadow rounded-3">
+                            <ul>
+                                <div v-if="tasks.length > 0">
+                                    <li class="border-bottom" v-for="(task, index) in tasks">
+                                        <h2 class="flex-grow-1" v-bind:class="task.done ? css_class : '' ">{{task.text}}</h2>
+                                        <button class="btn btn-secondary" @click="completedText(index)">
+                                            <i class="fa-solid fa-circle-check fa-xl"></i>
+                                        </button>
+                                        <button class="btn btn-secondary" @click="restartText(index)">
+                                            <i class="fa-solid fa-arrow-rotate-left fa-xl"></i>
+                                        </button>
+                                        <button class="btn btn-secondary" @click="remuveText(index)">
+                                                <i class="fa-solid fa-trash fa-xl"></i>
+                                        </button>
+                                    </li>
+                                </div>
+                                <p v-else>
+                                    La tua lista di cose da fare è vuota! Spettacolo!
+                                </p>
+                            </ul>
                         </div>
-                        <p v-else>
-                            La tua lista di cose da fare è vuota! Spettacolo!
-                        </p>
-                    </ul>
+                    </div>
+                    <!-- /.col thing to do -->
+
+                    <div class="col d-flex flex-column">
+                        <h2>Things done</h2>
+                        <div class="col d-flex bg-success shadow rounded-3 ms-1">
+                            <ul>
+                                <div v-if="tasks_done.length > 0">
+                                    <li class="border-bottom" v-for="(task, index) in tasks_done">
+                                        <h2 class="flex-grow-1">{{task.text}}</h2>
+                                    </li>
+                                </div>
+                                <p v-else>
+                                    Lista vuota, TRAVAGGHIA!
+                                </p>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.col Things done-->
+
+                    <div class="col d-flex flex-column">
+                        <h2>Things done</h2>
+                        <div class="col d-flex bg-success shadow rounded-3 ms-1">
+                            <ul>
+                                <div v-if="tasks_trash.length > 0">
+                                    <li class="border-bottom" v-for="(task, index) in tasks_trash">
+                                        <h2 class="flex-grow-1">{{task.text}}</h2>
+                                    </li>
+                                </div>
+                                <p v-else>
+                                    Cestino vuoto
+                                </p>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.col Trash-->
+
                 </div>
-                <!-- /.col -->
+                <!-- /.col containers-->
+
             </div>
             <!-- /.row -->
         </div>
