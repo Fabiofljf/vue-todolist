@@ -50,17 +50,19 @@ const app = new Vue({
             this.tasks[index].done = true;
             //console.log(this.tasks[index]);
             this.tasks_done.push(this.tasks[index])
-
         },
         restartText(index) {
             //console.log('ripristino testo');
-            this.tasks[index].done = false
+            this.tasks[index].done = false;
+            this.tasks_done.splice(this.tasks[index], 1)
         },
         remuveText(index) {
             //console.log('tolgo testo');
             //console.log(this.tasks[index]);
             console.log(this.tasks.length);
             this.tasks.splice(index, 1)
+            this.tasks_done.splice(this.tasks[index], 1)
+            this.tasks_trash.push(this.tasks[index])
         }
     }
 })
