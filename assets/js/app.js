@@ -15,10 +15,11 @@ const app = new Vue({
     index: 0,
     css_class: 'text-decoration-line-through',
     data: {
-        array_new: {
-            text_user: '',
-            done: 'true',
-        },
+        // array_new: {
+        //     text_user: '',
+        //     done: 'false',
+        // },
+        text_user: '',
         tasks: [{
                 text: 'Andare in palestra',
                 done: true
@@ -41,7 +42,7 @@ const app = new Vue({
         getText() {
             console.log('aggiugo listItem');
             console.log(this.text_user);
-            this.tasks.unshift(this.array_new)
+            this.tasks.unshift(this.text_user)
 
         },
         cutText(index) {
