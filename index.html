@@ -36,19 +36,24 @@
                 </div>
                 <!-- /.col -->
                 <div class="col offset-3 w_650 d-flex flex-column justify-content-center bg-primary gy-4">
-                    <ul>
-                        <li class="border-bottom" v-for="(task, index) in tasks">
-                            <h2 class="flex-grow-1" v-bind:class="task.done ? css_class : '' ">{{task.text}}</h2>
-                            <button class="btn btn-secondary" @click="completedText(index)">
-                                <i class="fa-solid fa-circle-check fa-xl"></i>
-                            </button>
-                            <button class="btn btn-secondary" @click="restartText(index)">
-                                <i class="fa-solid fa-arrow-rotate-left fa-xl"></i>
-                            </button>
-                            <button class="btn btn-secondary" @click="remuveText">
-                                <i class="fa-solid fa-trash fa-xl"></i>
-                            </button>
-                        </li>
+                    <ul id="text_empty">
+                        <div v-if="tasks.length > 0">
+                            <li class="border-bottom" v-for="(task, index) in tasks">
+                                <h2 class="flex-grow-1" v-bind:class="task.done ? css_class : '' ">{{task.text}}</h2>
+                                <button class="btn btn-secondary" @click="completedText(index)">
+                                    <i class="fa-solid fa-circle-check fa-xl"></i>
+                                </button>
+                                <button class="btn btn-secondary" @click="restartText(index)">
+                                    <i class="fa-solid fa-arrow-rotate-left fa-xl"></i>
+                                </button>
+                                <button class="btn btn-secondary" @click="remuveText(index)">
+                                        <i class="fa-solid fa-trash fa-xl"></i>
+                                </button>
+                            </li>
+                        </div>
+                        <p v-else>
+                            La tua lista di cose da fare è vuota! Spettacolo!
+                        </p>
                     </ul>
                 </div>
                 <!-- /.col -->

@@ -51,8 +51,11 @@ const app = new Vue({
             //console.log('ripristino testo');
             this.tasks[index].done = false
         },
-        remuveText() {
-            console.log('tolgo testo');
+        remuveText(index) {
+            //console.log('tolgo testo');
+            //console.log(this.tasks[index]);
+            console.log(this.tasks.length);
+            this.tasks.splice(index, 1)
         }
     }
 })
