@@ -44,11 +44,9 @@ const app = new Vue({
             this.tasks.push(myNewTask)
         },
         cutText(index) {
-            console.log('taglio testo');
-            console.log(this.tasks[index].done);
-            console.log(this.class_space);
-            console.log(this.css_class);
-            if (this.tasks[index].done === true) {
+            console.log(this.tasks[index].done); // - true
+            console.log(index); // - 0
+            if (this.tasks[index].done === true && index === index) {
                 this.class_space = this.css_class
             }
         },
