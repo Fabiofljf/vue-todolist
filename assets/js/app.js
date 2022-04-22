@@ -39,6 +39,8 @@ const app = new Vue({
     },
     methods: {
         getText() {
+            console.log(this.task.text_user);
+            console.log(this.task);
             this.tasks.unshift(this.task)
 
         },
