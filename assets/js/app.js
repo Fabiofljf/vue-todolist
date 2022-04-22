@@ -38,18 +38,18 @@ const app = new Vue({
         getText() {
             const myNewTask = {
                 text: this.text_user,
-                done: 'false',
+                done: false,
             }
             this.tasks.push(myNewTask)
         },
-        cutText(index) {
+        completedText(index) {
             // console.log(this.tasks[index].done); // - true
             // console.log(index); // - 0
-            // console.log(this.tasks[index])
             this.tasks[index].done = true
         },
-        restartText() {
-            console.log('ripristino testo');
+        restartText(index) {
+            //console.log('ripristino testo');
+            this.tasks[index].done = false
         },
         remuveText() {
             console.log('tolgo testo');
