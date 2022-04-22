@@ -15,7 +15,6 @@ const app = new Vue({
     data: {
         text_user: '',
         index: 0,
-        class_space: '',
         css_class: 'text-decoration-line-through',
         tasks: [{
                 text: 'Andare in palestra',
@@ -44,11 +43,10 @@ const app = new Vue({
             this.tasks.push(myNewTask)
         },
         cutText(index) {
-            console.log(this.tasks[index].done); // - true
-            console.log(index); // - 0
-            if (this.tasks[index].done === true && index === index) {
-                this.class_space = this.css_class
-            }
+            // console.log(this.tasks[index].done); // - true
+            // console.log(index); // - 0
+            // console.log(this.tasks[index])
+            this.tasks[index].done = true
         },
         restartText() {
             console.log('ripristino testo');

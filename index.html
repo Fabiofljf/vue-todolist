@@ -38,7 +38,7 @@
                 <div class="col offset-3 w_650 d-flex flex-column justify-content-center bg-primary gy-4">
                     <ul>
                         <li class="border-bottom" v-for="(text, index) in tasks">
-                            <h2 class="flex-grow-1" v-bind:class="class_space">{{tasks[index].text}}</h2>
+                            <h2 class="flex-grow-1" v-bind:class="tasks.done === 'true' ? 'css_class' : '' ">{{tasks[index].text}}</h2>
                             <button class="btn btn-secondary" @click="cutText(index)">
                                 <i class="fa-solid fa-circle-check fa-xl"></i>
                             </button>
